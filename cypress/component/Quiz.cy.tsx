@@ -5,7 +5,7 @@ import '@testing-library/cypress/add-commands';
 describe('Quiz Component', () => {
   beforeEach(() => {
     // Mock the API call to get questions
-    cy.intercept('GET', '/api/questions', {
+    cy.intercept('GET', '/api/questions/start', {
       statusCode: 200,
       body: [
         {
