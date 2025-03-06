@@ -1,7 +1,7 @@
 describe('Quiz E2E Tests', () => {
     beforeEach(() => {
       // Mock the API call to get questions
-      cy.intercept('GET', '/api/questions', {
+      cy.intercept('GET', '/api/questions/start', {
         statusCode: 200,
         body: [
           {
@@ -31,7 +31,7 @@ describe('Quiz E2E Tests', () => {
   
     it('should start the quiz and display the first question', () => {
       // Click the start button
-      cy.get('[data-cy="start-button"]').click();
+      cy.get('button').click();
   
       // Wait for the questions to be loaded
       cy.wait('@getQuestions');
@@ -48,7 +48,7 @@ describe('Quiz E2E Tests', () => {
   
     it('should handle correct and incorrect answers and show the final score', () => {
       // Start the quiz
-      cy.get('[data-cy="start-button"]').click();
+      cy.get('button').click();
       cy.wait('@getQuestions');
   
       // Answer the first question correctly
@@ -67,7 +67,7 @@ describe('Quiz E2E Tests', () => {
   
     it('should allow restarting the quiz', () => {
       // Start the quiz
-      cy.get('[data-cy="start-button"]').click();
+      cy.get('button').click();
       cy.wait('@getQuestions');
   
       // Answer the first question correctly
@@ -92,7 +92,7 @@ describe('Quiz E2E Tests', () => {
       }).as('getQuestions');
   
       // Start the quiz
-      cy.get('[data-cy="start-button"]').click();
+      cy.get('button').click();
   
       // Verify the loading spinner is displayed
       cy.get('.spinner-border').should('be.visible');
