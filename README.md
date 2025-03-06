@@ -38,6 +38,7 @@ To get the application up and running on your local machine, follow these steps:
    ```bash
    npm run test
    ```
+   You may view a walkthrough video at the following: https://tinyurl.com/efoley-tech-quiz-walkthrough
 
 ## Collaborators
 Thank you to edX bootcamps for the starter code in this project.
